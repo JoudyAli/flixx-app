@@ -1,6 +1,14 @@
 const global = {
   currentPage: window.location.pathname,
 };
+function highlighjtActiveLink() {
+  const links = document.querySelectorAll('.nav-link');
+  links.forEach((link) => {
+    if (link.getAttribute('href') === global.currentPage) {
+      link.classList.add('active');
+    }
+  });
+}
 
 // Init App
 function init() {
@@ -22,5 +30,6 @@ function init() {
       console.log('Search ');
       break;
   }
+  highlighjtActiveLink();
 }
 document.addEventListener('DOMContentLoaded', init);
